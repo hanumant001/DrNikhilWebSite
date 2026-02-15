@@ -1,92 +1,65 @@
 import React from "react";
 import Image from "next/image";
-import { Box, Button, Typography, Container } from "@mui/material";
+import { Grid, Button, Container } from "@mui/material";
 
 const Home = () => {
   return (
-    <Box
-      sx={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        bgcolor: "#f1f5f9",
-        py: { xs: 6, md: 0 }
-      }}
-    >
+    <section className="bg-slate-100 min-h-screen flex items-center">
       <Container maxWidth="lg">
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", md: "row" },
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: { xs: 4, md: 8 },
-            textAlign: { xs: "center", md: "left" }
-          }}
+        <Grid
+          container
+          spacing={4}
+          alignItems="center"
+          justifyContent="center"
         >
-          {/* Doctor Image */}
-          <Box
-            sx={{
-              width: { xs: 180, sm: 220, md: 350 },
-              height: { xs: 180, sm: 220, md: 420 },
-              borderRadius: { xs: "50%", md: "20px" },
-              overflow: "hidden",
-              boxShadow: "0 15px 40px rgba(0,0,0,0.1)"
-            }}
-          >
-            <Image
-              src="/doctor.png"
-              width={400}
-              height={500}
-              alt="Doctor"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          </Box>
+          {/* Image Section */}
+          <Grid item xs={12} md={5} className="flex justify-center">
+            {/* <div className="w-44 h-44 md:w-72 md:h-72 rounded-full overflow-hidden shadow-xl border-4 border-white"> */}
+              <div className="relative w-44 h-44 md:w-72 md:h-72 rounded-full overflow-hidden">
+              <Image
+                src="/doctor.png"
+                alt="Doctor"
+                width={300}
+                height={300}
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </div>
+          </Grid>
 
-          {/* Content */}
-          <Box sx={{ maxWidth: 500 }}>
-            <Typography
-              sx={{
-                fontSize: { xs: 22, sm: 26, md: 36 },
-                fontWeight: 700,
-                color: "#0f172a",
-                mb: 1
-              }}
-            >
-              Dr. Nikhil Tiwari
-            </Typography>
 
-            <Typography sx={{ color: "#475569", mb: 1 }}>
-              MBBS, MD, MCh
-            </Typography>
 
-            <Typography sx={{ color: "#64748b", mb: 2 }}>
-              Surgical Oncologist
-            </Typography>
+          {/* Content Section */}
+          <Grid item xs={12} md={7}>
+            <div className="text-center md:text-left">
+              <h1 className="text-2xl md:text-4xl font-bold text-slate-900 mb-2">
+                Dr. Nikhil Tiwari
+              </h1>
 
-            <Typography sx={{ color: "#64748b", mb: 3 }}>
-              Compassionate cancer care with advanced treatment and
-              patient-focused healing.
-            </Typography>
+              <p className="text-slate-600 text-sm md:text-base mb-1">
+                MBBS, MD, MCh
+              </p>
 
-            <Button
-              variant="contained"
-              fullWidth
-              size="large"
-              sx={{
-                borderRadius: "30px",
-                py: 1.5,
-                fontWeight: 600,
-                textTransform: "none",
-                fontSize: 16
-              }}
-            >
-              Book Appointment
-            </Button>
-          </Box>
-        </Box>
+              <p className="text-slate-500 text-base mb-3">
+                Surgical Oncologist
+              </p>
+
+              <p className="text-slate-500 text-sm md:text-lg mb-6 leading-relaxed">
+                Compassionate cancer care with advanced treatment and
+                patient-focused healing.
+              </p>
+
+              <Button
+                variant="contained"
+                size="large"
+                className="!rounded-full !px-8 !py-3 !text-base !font-semibold"
+              >
+                Book Appointment
+              </Button>
+            </div>
+          </Grid>
+        </Grid>
       </Container>
-    </Box>
+    </section>
   );
 };
 
