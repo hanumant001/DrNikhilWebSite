@@ -1,0 +1,87 @@
+.section {
+  /* background: #f1f5f9; */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.imageGrid {
+  display: flex;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textContainer {
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.degree {
+  color: #475569;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.specialist {
+  color: #64748b;
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.description {
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.button {
+  border-radius: 999px !important;
+  padding: 12px 32px !important;
+  font-size: 1rem !important;
+  font-weight: 600 !important;
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    width: 18rem;
+    height: 18rem;
+  }
+
+  .textContainer {
+    text-align: left;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .degree {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 1.125rem;
+  }
+}

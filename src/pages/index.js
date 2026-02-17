@@ -8,7 +8,8 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Footer from '@/components/footer';
-import Home from './home';
+import Home from './home'; 
+import About from './about';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -82,7 +83,7 @@ const mainPage = (props) => {
         </AppBar>
       </ElevationScroll>
       <Toolbar />
-      <Container>
+      <Container className='h'> 
         {/* {sections.map((sec) => (
           <Box
             id={sec}
@@ -107,7 +108,8 @@ const mainPage = (props) => {
           </Box>
         ))} */}
         <Home/>
-        <Footer/>
+        <About/>
+        {/* <Footer/> */}
       </Container>
     </React.Fragment>
   )
