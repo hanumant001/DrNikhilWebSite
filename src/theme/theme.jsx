@@ -15,7 +15,7 @@ let theme = createTheme({
             contrastText: "#ffffff",
         },
         background: {
-            default: "#f8fafc",   // soft gray-blue background
+            default: "#f1f5f9",  
             paper: "#ffffff",
         },
         text: {
