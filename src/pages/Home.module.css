@@ -1,6 +1,6 @@
 .section {
   /* background: #f1f5f9; */
-  min-height: 100vh;
+  min-height: 93vh;
   display: flex;
   align-items: center;
 }
@@ -12,10 +12,11 @@
 
 .imageWrapper {
   position: relative;
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 20rem;
   border-radius: 50%;
   overflow: hidden;
+  border: 6px solid #22d3ee;
 }
 
 .image {

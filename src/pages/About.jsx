@@ -5,14 +5,14 @@ import styles from "./About.module.css";
 
 const About = () => {
   return (
-    <section id="about" className={styles.section}>
+    <section id="About" className={styles.section}>
       <Container>
         <Grid container spacing={6} alignItems="center" justifyContent='center'>
 
           <Grid item xs={12} md={5} className={styles.imageGrid}>
             <div className={styles.imageWrapper}>
               <Image
-                src="/doctor.png"
+                src="/doctorAboutAvatar.png"
                 alt="Doctor"
                 width={400}
                 height={400}
