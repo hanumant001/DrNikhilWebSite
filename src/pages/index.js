@@ -8,8 +8,10 @@ import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Footer from '@/components/footer';
-import Home from './home'; 
+import Home from './home';
 import About from './about';
+import styles from "./MainPage.module.css";
+import Contact from './contact';
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -41,49 +43,61 @@ ElevationScroll.propTypes = {
 const mainPage = (props) => {
   const [active, setActive] = useState('home')
 
-  const sections = ["home", "About", "services", "contact"]
+  const sections = ["home", "About", "contact"]
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActive(entry.target.id)
-          }
-        })
-      },
-      { threshold: 0.6 }
-    )
-    sections.forEach((id) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el);
-    })
-    return () => observer.disconnect()
-  }, [])
+ useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id)
+        }
+      })
+    },
+    {
+      threshold: 0.3,
+      rootMargin: "-80px 0px -40% 0px"
+    }
+  )
+
+  sections.forEach((id) => {
+    const el = document.getElementById(id)
+    if (el) observer.observe(el)
+  })
+
+  return () => observer.disconnect()
+}, [])
+
+
   return (
     <React.Fragment>
       <CssBaseline />
       <ElevationScroll {...props}>
-        <AppBar>
-          <Toolbar sx={{ justifyContent: 'flex-end' }}>
-            {sections.map((sec) =>
-              <Button
-                key={sec}
-                href={`#${sec}`}
-                sx={{
-                  fontWeight: active === sec ? "bold" : "normal",
-                  color: active === sec ? "green" : "red",
-                }}
-              // sx={{backgroundColor:'red'}}
-              >
-                {sec.charAt(0).toUpperCase() + sec.slice(1)}
-              </Button>
-            )}
+        <AppBar position="fixed" className={styles.appbar}>
+          <Toolbar className={styles.toolbar}>
+
+            <div className={styles.navContainer}>
+              {sections.map((sec) => {
+                const isActive = active === sec;
+
+                return (
+                  <Button
+                    key={sec}
+                    href={`#${sec}`}
+                    className={`${styles.navBtn} ${isActive ? styles.active : ""}`}
+                  >
+                    {sec.charAt(0).toUpperCase() + sec.slice(1)}
+                  </Button>
+                );
+              })}
+            </div>
+
           </Toolbar>
         </AppBar>
       </ElevationScroll>
+
       <Toolbar />
-      <Container className='h'> 
+      <Container>
         {/* {sections.map((sec) => (
           <Box
             id={sec}
@@ -107,8 +121,9 @@ const mainPage = (props) => {
             {sec === "home" && <Home/>}
           </Box>
         ))} */}
-        <Home/>
-        <About/>
+        <Home />
+        <About />
+        <Contact/>
         {/* <Footer/> */}
       </Container>
     </React.Fragment>

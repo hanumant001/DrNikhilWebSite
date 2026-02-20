@@ -23,14 +23,18 @@ const Home = () => {
           <Grid item xs={12} md={7}>
             <div className={styles.textContainer}>
               <h1 className={styles.title}>Dr. Nikhil Tiwari</h1>
-              <p className={styles.degree}>MBBS, MD, MCh</p>
+              <p className={styles.degree}>MBBS, MS, MCh</p>
               <p className={styles.specialist}>Surgical Oncologist</p>
               <p className={styles.description}>
                 Compassionate cancer care with advanced treatment and
                 patient-focused healing.
               </p>
 
-              <Button variant="contained" size="large" className={styles.button}>
+              <Button variant="contained" size="large" onClick={() => {
+                document.getElementById("contact")?.scrollIntoView({
+                  behavior: "smooth"
+                });
+              }} className={styles.button}>
                 Book Appointment
               </Button>
             </div>

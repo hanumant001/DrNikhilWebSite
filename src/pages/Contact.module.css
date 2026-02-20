@@ -1,0 +1,57 @@
+.section {
+  min-height: 93vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(to bottom right, #f8fafc, #e0f2fe);
+  padding: 0px 10px;
+}
+
+.card {
+  padding: 17px;
+  border-radius: 24px;
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.button {
+  border-radius: 30px !important;
+  height: 52px;
+  font-weight: 600 !important;
+  transition: 0.25s ease !important;
+}
+
+.button:hover {
+  transform: scale(1.02);
+}
+
+.alert {
+  margin-bottom: 16px;
+}
+
+/* Responsive */
+
+@media (max-width: 600px) {
+  .card {
+    padding: 24px;
+  }
+}
